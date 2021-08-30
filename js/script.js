@@ -61,7 +61,8 @@ function generateTitleLinks(){
 
   /*delete links from the column*/
 
-  const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
+  const titleList = document.querySelector(optTitleListSelector);
+  titleList.innerHTML = '';
   console.log(titleList)
 
   /*for every article*/
@@ -79,11 +80,11 @@ function generateTitleLinks(){
     console.log(linkHTML);
     /*nie działa*/
     // document.querySelector(optTitleListSelector).innerHTML = titleList.innerHTML + linkHTML;
-    // titleList.innerHTML = titleList.innerHTML + linkHTML;
+    titleList.innerHTML = titleList.innerHTML + linkHTML;
     // let html = html + linkHTML;
 
     // titleList.insertAdjacentHTML('afterend', '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>')
-    document.querySelector(optTitleListSelector).insertAdjacentHTML('beforeend', linkHTML);
+    // titleList.insertAdjacentHTML('beforeend', linkHTML);
   }
   // titleList.innerHTML = html
   // titleList.innerHTML = titleList.innerHTML + linkHTML
