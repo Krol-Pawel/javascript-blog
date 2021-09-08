@@ -219,18 +219,22 @@ function authorClickHandler(event){
   const clickedElement = this;
   console.log('Link was clicked 3time!');
   console.log(event);
-  const hrefs = clickedElement.getAttribute('data-author');
-  console.log(hrefs)
-  for (let href of hrefs){
+  const href = clickedElement.getAttribute('data-author');
+  console.log(href)
+  const activeLinkToActors = document.querySelectorAll('a.active[href^="#"]');
+  for (let activeLinkToActor of activeLinkToActors){
+    activeLinkToActor.classList.remove('active')
+    console.log(activeLinkToActor)
+  }
+  // for (let href of hrefs){
   //   href.classList.remove('active')
   //   console.log(href)
-  
+  // }
   let allAuthors = document.querySelectorAll('a[href="' + href + '"]');
   
   for (let allAuthor of allAuthors){
     allAuthor.classList.add('active');
   }
-}
   generateTitleLinks('[data-author~="' + href + '"]');
 }
 
