@@ -120,26 +120,30 @@ body {
 }
 
 .tag-size-1 {
-  font-size: 30%;
+  font-size: 20px;
   color: blue;
 }
 
 .tag-size-2 {
-  font-size: 40%;
+  font-size: 25px;
   color: brown;
 }
 
 .tag-size-3 {
-  font-size: 50%;
-  color: yellow;
+  font-size: 30px;
+  color: orange;
 }
 
 .tag-size-4 {
-  font-size: 60%;
+  font-size: 35px;
   color: green;
 }
 
 .tag-size-5 {
-  font-size: 70%;
+  font-size: 40px;
   color: red;
+}
+
+.sidebar ul {
+  display: inline;
 }
