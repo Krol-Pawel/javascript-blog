@@ -2,11 +2,11 @@ const templates = {
   articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
   tagLink: Handlebars.compile(document.querySelector('#template-article-tag').innerHTML),
   authorLink: Handlebars.compile(document.querySelector('#template-article-author').innerHTML),
-  tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML)
-
+  tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
+  authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML),
 }
 console.log(document.querySelector('#template-article-tag').innerHTML)
-
+console.log(document.querySelector('#template-author-cloud-link').innerHTML)
 'use strict';
 
 function titleClickHandler(event){
@@ -210,6 +210,7 @@ function generateTags(){
   console.log('tagsParams:', tagsParams)
   //let allTagsHTML = '';
   const allTagsData = {tags: []};
+  console.log(allTagsData)
   /* [NEW] START LOOP: for each tag in allTags: */
   for(let tag in allTags){
     /* [NEW] generat code of a link and add it to allTagsHTML */
@@ -367,15 +368,25 @@ function generateAuthors(){
   console.log(allAuthors)
   const authorParams = calculateAuthtorsParams(allAuthors)
   console.log('authorParams:', authorParams)
-  let allAuthorsHTML = '';
+  //let allAuthorsHTML = '';
+  const allAuthorsData = {allAuthors: []}
+  console.log(allAuthors)
   for(let author in allAuthors){
-    const authorLinkHTML ='<li><a href="#"><span>'+ author + ' ' + allAuthors[author] + '</span></a></li>';
+    // z liczbą tekstów const authorLinkHTML ='<li><a href="#"><span>'+ author + ' ' + allAuthors[author] + '</span></a></li>';
+    const authorLinkHTML ='<li><a href="#"><span>'+ author + '</span></a></li>';
     console.log('authorLinkHTML:', authorLinkHTML)
-    allAuthorsHTML += authorLinkHTML
+    //allAuthorsHTML += authorLinkHTML
     //authorList.innerHTML = allAuthorsHTML += authorLinkHTML;
-
+    allAuthorsData.allAuthors.push({
+      auth: author,
+    });
+    console.log(author)
+  
+  console.log(allAuthorsData)
+  //authorList.innerHTML = allAuthorsHTML;
   }
-  authorList.innerHTML = allAuthorsHTML;
+  authorList.innerHTML = templates.authorCloudLink(allAuthorsData)
+  
     // console.log(html);
     // const authors = document.querySelectorAll(optArticleAuthorSelector);
     // console.log(authors);
