@@ -345,14 +345,16 @@ function generateAuthors(){
   const articles = document.querySelectorAll(optArticleSelector);
   console.log(articles)
   for (let article of articles){
-    let html = article.querySelector(optArticleAuthorSelector);
-    html.innerHTML=''
-    console.log(html)
+    // let html = article.querySelector(optArticleAuthorSelector);
+    // html.innerHTML=''
+    // console.log(html)
+    const wrapperAuthor = article.querySelector(optArticleAuthorSelector);
         //article.getattribute data author
     const articleAuthors = article.getAttribute('data-author');
     const linkHTMLData = {id:articleAuthors, aut:articleAuthors};
-    const linkHTML = templates.authorLink(linkHTMLData);
-    console.log(linkHTML)
+    // const linkHTML = templates.authorLink(linkHTMLData);
+    wrapperAuthor.innerHTML= templates.authorLink(linkHTMLData);
+    // console.log(linkHTML)
     //const linkHTML = '<a href="#' + articleAuthors + '"><span>' + articleAuthors + '</span></a>';
     //for (let author = author of articleAuthors){}
     if(!allAuthors.hasOwnProperty(articleAuthors)){
@@ -361,20 +363,20 @@ function generateAuthors(){
     allAuthors[articleAuthors]++;
     }
 
-    html.innerHTML = html.innerHTML + linkHTML;
+    // html.innerHTML = html.innerHTML + linkHTML;
   }
   
   const authorList = document.querySelector('.authors');
   console.log(allAuthors)
-  const authorParams = calculateAuthtorsParams(allAuthors)
-  console.log('authorParams:', authorParams)
+  // const authorParams = calculateAuthtorsParams(allAuthors)
+  // console.log('authorParams:', authorParams)
   //let allAuthorsHTML = '';
   const allAuthorsData = {allAuthors: []}
   console.log(allAuthors)
   for(let author in allAuthors){
     // z liczbą tekstów const authorLinkHTML ='<li><a href="#"><span>'+ author + ' ' + allAuthors[author] + '</span></a></li>';
-    const authorLinkHTML ='<li><a href="#"><span>'+ author + '</span></a></li>';
-    console.log('authorLinkHTML:', authorLinkHTML)
+    // const authorLinkHTML ='<li><a href="#"><span>'+ author + '</span></a></li>';
+    // console.log('authorLinkHTML:', authorLinkHTML)
     //allAuthorsHTML += authorLinkHTML
     //authorList.innerHTML = allAuthorsHTML += authorLinkHTML;
     allAuthorsData.allAuthors.push({
@@ -430,9 +432,9 @@ function authorClickHandler(event){
 }
 
 function addClickListenersToAuthors(){
-  const allAutors = document.querySelectorAll('.post-author');
-  for (let allAutor of allAutors){
-    allAutor.addEventListener('click', authorClickHandler);
+  const links = document.querySelectorAll('a[href^="#author"]');
+  for (let link of links){
+    link.addEventListener('click', authorClickHandler);
   }
 }
 
