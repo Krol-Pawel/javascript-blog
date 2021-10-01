@@ -1,7 +1,6 @@
 {
   "name": "projekt_z_task_runnerem",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "init-project": "npm install && npm-run-all init:*",
@@ -32,5 +31,14 @@
     "autoprefixer": "^10.2.4",
     "postcss-cli": "^8.3.1",
     "postcss": "^8.2.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jihad89/javascript-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jihad89/javascript-blog/issues"
+  },
+  "homepage": "https://github.com/jihad89/javascript-blog#readme",
+  "description": ""
 }
